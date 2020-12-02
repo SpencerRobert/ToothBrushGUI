@@ -21,8 +21,6 @@ private slots:
 
     void on_mediaButton_clicked();
 
-    void on_selectionBackButton_clicked();
-
     void on_weatherButton_clicked();
 
     void updateTime();
