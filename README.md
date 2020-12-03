@@ -1,6 +1,14 @@
 # ToothBrushGUI
 
-To run this program on a fresh raspberry pi, you must install QT creator. This can be done through the terminal through the commands:
+2 methods to run project on fresh raspberry pi:
+
+1. 
+Navigate to basic executable repo: https://github.com/SpencerRobert/TechbrushExc
+create new folder named (case sensitive) "toothBrushGUI" in path: /home/pi
+extract the repo files into that new folder, then run the executable toothBrushGUI file
+
+2.
+Second method requires that you install QT creator. This can be done through the terminal through the commands:
 sudo apt-get install qt5-default
 sudo apt-get install qtcreator
 
