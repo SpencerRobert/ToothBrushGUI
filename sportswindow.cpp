@@ -1,7 +1,9 @@
-/**Sports Window UI designed by Spencer Poultney
+/** Sports window class
  * This class is designed to allow the user to pull up team statistics
  * and media for a variety of sports' respective professional leagues.
- **/
+ * @author Spencer Poultney
+ * @brief Allows user to view sports stats
+ */
 
 #include "sportswindow.h"
 #include "ui_sportswindow.h"
@@ -10,6 +12,10 @@
 #include <QUrl>
 #include <QPixmap>
 
+/**
+ * @brief creates sports window
+ * @param parent
+ */
 sportsWindow::sportsWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::sportsWindow)
@@ -28,11 +34,17 @@ sportsWindow::sportsWindow(QWidget *parent) :
     ui->teamStatsButton->setVisible(false);
 }
 
+/**
+ * @brief deletes sports window
+ */
 sportsWindow::~sportsWindow()
 {
     delete ui;
 }
 
+/**
+ * @brief allows for team specific functionality to appear on button click
+ */
 void sportsWindow::on_sportsSelectButton_clicked()
 {
     //Now allow user to search for teams
@@ -82,6 +94,9 @@ void sportsWindow::on_sportsSelectButton_clicked()
 
 }
 
+/**
+ * @brief closes current window and opens previous window
+ */
 void sportsWindow::on_sportsBackButton_clicked()
 {
     hide();
@@ -90,6 +105,9 @@ void sportsWindow::on_sportsBackButton_clicked()
     mediaWindowBack.exec();
 }
 
+/**
+ * @brief opens team databases specified by user on button click
+ */
 void sportsWindow::on_teamStatsButton_clicked() {
     QString teamName = ui->teamLineEdit->displayText().toLower();
 
@@ -496,6 +514,9 @@ void sportsWindow::on_teamStatsButton_clicked() {
 
    }
 
+/**
+ * @brief displays upcoming games for league specified by user
+ */
 void sportsWindow::on_upcomingGamesButton_clicked()
 {
     //Pulls up upcoming games for each respective league
