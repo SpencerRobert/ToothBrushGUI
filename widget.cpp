@@ -1,7 +1,9 @@
-/**Weather widget designed by Spencer Poultney
- * This class is designed to retrieve a JSON file from the
- * openweathermap API and parse it to display local weather statistics
- **/
+/** Weather widget class
+ *This class is designed to retrieve a JSON file from the
+ *openweathermap API and parse it to display local weather statistics
+ * @author Spencer Poultney
+ * @brief displays form containing weather data
+ */
 
 #include "widget.h"
 #include "ui_widget.h"
@@ -14,6 +16,10 @@
 #include <QUrl>
 #include <QPixmap>
 
+/**
+ * @brief creates weather widget
+ * @param parent
+ */
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
@@ -31,11 +37,19 @@ Widget::Widget(QWidget *parent) :
     networkManager->get(QNetworkRequest(QUrl("http://api.openweathermap.org/data/2.5/weather?lat=42.983612&lon=-81.249725&appid=c4ac218355fde02e245e6b5ba2e16137")));   //request from openweathermap API using provided key
 }
 
+/**
+ * @brief deletes weather widget
+ */
 Widget::~Widget()
 {
     delete ui;
 }
 
+/**
+ * @brief Uses QNetworkReply to retrieve JSON and parse it to store
+ *         weather data
+ * @param reply
+ */
 void Widget::onResult(QNetworkReply *reply)
 {
     // If there are no errors
