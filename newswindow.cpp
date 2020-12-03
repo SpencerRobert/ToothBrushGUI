@@ -1,7 +1,9 @@
-/**News Window UI designed by Mazen Baioumy
- * This class is designed to allow the user to open and view the news
- * from a variety of different outlets.
- * */
+/** News window class
+This class is designed to allow the user to open and view the news
+ from a variety of different outlets.
+ @author Mazen Baioumy
+ @brief displays news to user
+*/
 
 #include "newswindow.h"
 #include "ui_newswindow.h"
@@ -10,6 +12,10 @@
 #include <QUrl>
 #include <QPixmap>
 
+/**
+ * @brief creates news window
+ * @param parent
+ */
 newsWindow::newsWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::newsWindow)
@@ -25,11 +31,17 @@ newsWindow::newsWindow(QWidget *parent) :
     ui->label2->setStyleSheet("QLabel { background-color : grey;}");
 }
 
+/**
+ * @brief deletes news window
+ */
 newsWindow::~newsWindow()
 {
     delete ui;
 }
 
+/**
+ * @brief opens media source based on user input after button click
+ */
 void newsWindow::on_newsButton_clicked()
 {
     //CTV
@@ -96,6 +108,9 @@ void newsWindow::on_newsButton_clicked()
 
 }
 
+/**
+ * @brief closes current window and opens previous window on button click
+ */
 void newsWindow::on_newsBackButton_clicked()
 {
     hide();
