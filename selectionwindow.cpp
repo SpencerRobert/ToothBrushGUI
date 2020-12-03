@@ -1,9 +1,11 @@
-/**Selection Window UI designed by Yashkarn Pabla
- * This class is designed to allow the user to select between opening
+/** Selection window class
+This class is designed to allow the user to select between opening
  * the music or media interface, or the weather widget. It is also
  * designed to display a calendar opened to the current month, along
  * with the current time and date displayed underneath.
- **/
+ * @author Yashkarn Pabla
+ * @brief allows user to select between other UI's
+ */
 
 #include "selectionwindow.h"
 #include "ui_selectionwindow.h"
@@ -15,6 +17,10 @@
 #include <QTime>
 
 
+/**
+ * @brief Creates selection window
+ * @param parent
+ */
 selectionWindow::selectionWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::selectionWindow)
@@ -32,13 +38,18 @@ selectionWindow::selectionWindow(QWidget *parent) :
 }
 
 
+/**
+ * @brief deletes selection window
+ */
 selectionWindow::~selectionWindow()
 {
     delete ui;
 }
 
 
-
+/**
+ * @brief closes current window and opens music window on button click
+ */
 void selectionWindow::on_musicButton_clicked()
 {
     hide();
@@ -47,6 +58,9 @@ void selectionWindow::on_musicButton_clicked()
     musicWindow.exec();
 }
 
+/**
+ * @brief closes current window and opens media window on button click
+ */
 void selectionWindow::on_mediaButton_clicked()
 {
     hide();
@@ -56,13 +70,18 @@ void selectionWindow::on_mediaButton_clicked()
 }
 
 
-
+/**
+ * @brief opens weather widget on button click
+ */
 void selectionWindow::on_weatherButton_clicked()
 {
     Widget *weatherWindow = new Widget();
      weatherWindow->show();
 }
 
+/**
+ * @brief updates time label with new formatted current time
+ */
 void selectionWindow::updateTime() {
     ui->currentTimeLabel->setText(QTime::currentTime().toString("hh:mm A"));    //Print updated time
 }
